@@ -1,15 +1,26 @@
 import React from 'react'
 
 const CountdownItem = ({ type, number }) => {
+
+    const getClassName = () => {
+        if (type !== 'SECONDS') {
+            return "countdown-item"
+        } 
+        return "countdown-item last-item"
+    }
+
+    const formattedNumber = () => {
+        return number < 10 ? `0${number}` : number
+    }
+
     return (
-        <div className="countdown-item">
+        <div className={getClassName()}>
             <div className="number-box">
-                <p> {number} </p>
+                <p className="number"> {formattedNumber()} </p>
                 <div className="top-part"></div>
                 <div className="bottom-part"></div>
-                <div></div>
             </div>
-            <p>{type}</p>
+            <p className="type-text">{type}</p>
         </div>
     )
 }
