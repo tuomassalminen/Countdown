@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.scss'
 import Countdown from './components/Countdown'
+import DateForm from './components/DateForm'
 
 
 const App = () => {
+  const [targetDate, setTargetDate] = useState(new Date())
 
-  // Calculate if vappu is this or next year and pass it to the Countdown component
-  const getYearForWappu = () => {
-    const currentDate = new Date()
-    if (currentDate.getMonth() < 5) {
-      return currentDate.getFullYear()
+  const handleDateChange = (event) => {
+    event.preventDefault()
+    const date = event.target.value
+    const maxYear = String(new Date().getFullYear() + 1)
+    const minYear = String(new Date().getFullYear())
+    const submittedYear = date.slice(0, 4)
+    if (submittedYear.localeCompare(maxYear) !== 0 && submittedYear.localeCompare(minYear) !== 0 ) {
+      window.alert('Can only choose dates from this or next year')
+      return
     }
-    return currentDate.getFullYear() + 1
+    setTargetDate(new Date(date))
   }
 
   return (
     <div className="container">
-      <h1>WAPPULASKURI</h1>
-      <Countdown year={getYearForWappu()}/>
+      <DateForm handleDateChange={handleDateChange}/>
+      <Countdown targetDate={targetDate}/>
       <div className="hills"></div>
     </div>
   )
