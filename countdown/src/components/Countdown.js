@@ -49,6 +49,8 @@ const Countdown = ({ targetDate }) => {
             <CountdownItem type="HOURS" number={timeLeft.hours} />
             <CountdownItem type="MINUTES" number={timeLeft.minutes} />
             <CountdownItem type="SECONDS" number={timeLeft.seconds} />
+            <div className="hills"></div>
+
         </div>
     )
 }

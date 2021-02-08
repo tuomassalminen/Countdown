@@ -24,7 +24,6 @@ const App = () => {
     <div className="container">
       <DateForm handleDateChange={handleDateChange}/>
       <Countdown targetDate={targetDate}/>
-      <div className="hills"></div>
     </div>
   )
 }

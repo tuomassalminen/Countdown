@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const CountdownItem = ({ type, number }) => {
-    const [animationFinished, setAnimationFinished] = useState(true)
+    const [animationFinished, setAnimationFinished] = useState(false)
 
     const getAnimationClassName = (className, isFinished, animationType) => {
         return `${className} ${isFinished ? '' : animationType}`
