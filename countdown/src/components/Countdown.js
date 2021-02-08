@@ -14,7 +14,6 @@ const Countdown = ({ targetDate }) => {
     useEffect(() => {
         const calculateTimeLeft = () => {
             const currentDate = new Date()
-            // Vappu is on the first of May
             const difference = +targetDate - +currentDate
             let newTimeLeft = {}
     
